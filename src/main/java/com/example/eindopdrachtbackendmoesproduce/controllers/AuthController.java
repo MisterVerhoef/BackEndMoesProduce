@@ -7,6 +7,7 @@ import com.example.eindopdrachtbackendmoesproduce.models.User;
 import com.example.eindopdrachtbackendmoesproduce.payload.request.LoginRequest;
 import com.example.eindopdrachtbackendmoesproduce.payload.request.SignupRequest;
 import com.example.eindopdrachtbackendmoesproduce.payload.response.JwtResponse;
+import com.example.eindopdrachtbackendmoesproduce.repository.ProfileRepository;
 import com.example.eindopdrachtbackendmoesproduce.repository.RoleRepository;
 import com.example.eindopdrachtbackendmoesproduce.repository.UserRepository;
 import com.example.eindopdrachtbackendmoesproduce.response.MessageResponse;
@@ -37,6 +38,9 @@ public class AuthController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    ProfileRepository profileRepository;
 
     @Autowired
     RoleRepository roleRepository;

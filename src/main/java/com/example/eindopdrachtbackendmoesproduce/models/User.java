@@ -1,6 +1,8 @@
 package com.example.eindopdrachtbackendmoesproduce.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -31,6 +33,11 @@ public class User {
 
     @NotBlank
     private String password;
+
+
+   @OneToOne
+    @JoinColumn(name = "user_profile")
+    private Profile profile;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable( name = "user_roles",
@@ -85,5 +92,13 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }
